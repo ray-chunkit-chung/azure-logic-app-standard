@@ -1,5 +1,15 @@
-# azure-logic-app
+# azure-logic-app-standard
 azure logic app to track new file upload to one drive. If new, add an Azure queue
+
+
+
+
+# workflow
+```
+az logic workflow create -n demo -g test -l centralus --definition .\src\workflow.json
+```
+
+
 
 
 # Getting started
