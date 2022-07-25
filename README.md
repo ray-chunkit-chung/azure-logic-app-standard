@@ -1,16 +1,19 @@
 # azure-logic-app-standard
 azure logic app to track new file upload to one drive. If new, add an Azure queue
 
-
-
-
 # workflow
 ```
 az logic workflow create -n demo -g test -l centralus --definition .\src\workflow.json
 ```
 
+# Get customDomainVerificationId
+```
+az graph query -q "Resources | join kind=leftouter (ResourceContainers | where type=='microsoft.resources/subscriptions' | project subscriptionName=name, subscriptionId) on subscriptionId | where type == 'microsoft.web/sites'| project customVerificationId = tostring(properties.customDomainVerificationId), subscriptionId, subscriptionName | distinct *"
+```
 
-
+```
+az graph query -q "Resources | project name, properties.customDomainVerificationId, type | where type == 'microsoft.web/sites'"
+```
 
 # Getting started
 
