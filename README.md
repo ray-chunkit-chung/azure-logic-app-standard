@@ -15,8 +15,22 @@ az graph query -q "Resources | join kind=leftouter (ResourceContainers | where t
 az graph query -q "Resources | project name, properties.customDomainVerificationId, type | where type == 'microsoft.web/sites'"
 ```
 
-# Getting started
+# The subscription is not registered to use namespace 'Microsoft.Logic'
 
+Install AzureRmResourceProvider in Admin Powershell
+https://stackoverflow.com/questions/64787022/the-term-register-azresourceprovider-is-not-recognized-as-the-name-of-a-cmdlet
+```
+Install-Module -Name Az -AllowClobber -Scope AllUsers -Force
+Connect-AzAccount
+```
+
+Register Microsoft.Logic
+https://stackoverflow.com/questions/36200143/the-subscription-is-not-registered-to-use-namespace-microsoft-datafactory-error
+```
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Logic
+```
+
+# Getting started
 
 Login Azure
 ```
