@@ -1,10 +1,24 @@
 # azure-logic-app-standard
 azure logic app to track new file upload to one drive. If new, add an Azure queue
 
-# workflow
+# Create workflow
+
+https://docs.microsoft.com/en-us/cli/azure/logicapp?view=azure-cli-latest
 ```
 az logic workflow create -n demo -g test -l centralus --definition .\src\workflow.json
 ```
+
+Install logic app extension https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/logic-apps/set-up-devops-deployment-single-tenant-azure-logic-apps.md
+```
+az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
+```
+Deploy
+```
+az logicapp deployment source config-zip --name MyLogicAppName 
+   --resource-group MyResourceGroupName --subscription MySubscription 
+   --src MyBuildArtifact.zip
+```
+
 
 # Get customDomainVerificationId
 ```
