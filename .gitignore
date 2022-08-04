@@ -1,5 +1,8 @@
 # local folder / files
 local/
+__azurite*
+__blob*
+__queue*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
